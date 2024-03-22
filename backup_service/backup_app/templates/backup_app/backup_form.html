@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Respaldo</title>
+</head>
+<body>
+    <h1>Crear Respaldo</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="id_name">Nombre:</label>
+        <input type="text" id="id_name" name="name"><br>
+        <label for="id_data">Datos:</label>
+        <textarea id="id_data" name="data"></textarea><br>
+        <button type="submit">Crear Respaldo</button>
+    </form>
+</body>
+</html>

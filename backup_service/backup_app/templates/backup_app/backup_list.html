@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Respaldos</title>
+</head>
+<body>
+    <h1>Lista de Respaldos</h1>
+    <ul>
+        {% for backup in backups %}
+            <li>{{ backup.name }} - {{ backup.timestamp }}</li>
+        {% empty %}
+            <li>No hay respaldos disponibles.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'backup_create' %}">Crear Respaldo</a>
+</body>
+</html>
