@@ -7,4 +7,7 @@ class Backup(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        app_label = 'backup_app'  # Agregar app_label para la clase Backup
 # Create your models here.
