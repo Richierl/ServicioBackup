@@ -32,13 +32,13 @@ ALLOWED_HOSTS = ['localhost','54.90.22.14','127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'backup_app',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'backup_app',
 ]
 
 MIDDLEWARE = [
@@ -120,8 +120,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    '/home/ubuntu/ServicioBackup/backup_service/static',
 ]
+
 
 MEDIA_URL = '/media/'
 
