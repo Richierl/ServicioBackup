@@ -1,48 +1,18 @@
+<!-- backup_app/templates/backup_form.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Crear Respaldo</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        h1 {
-            color: #333;
-        }
-        form {
-            margin-top: 20px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input[type="text"], input[type="submit"] {
-            padding: 8px;
-            width: 300px;
-            box-sizing: border-box;
-            margin-bottom: 10px;
-        }
-        input[type="submit"] {
-            background-color: #007BFF;
-            color: white;
-            cursor: pointer;
-        }
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Backup</title>
 </head>
 <body>
-    <h1>Crear Nuevo Respaldo</h1>
-    <form method="post">
+    <h2>Create Backup</h2>
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <label for="name">Nombre del Respaldo:</label>
-        <input type="text" id="name" name="name" required>
-        <label for="description">Descripción:</label>
-        <input type="text" id="description" name="description" required>
-        <input type="submit" value="Crear Respaldo">
+        {{ form.as_p }}
+        <button type="submit">Save Backup</button>
     </form>
 </body>
 </html>

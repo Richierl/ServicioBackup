@@ -1,21 +1,30 @@
-<!-- backup_app/templates/home.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Backup Service - Home</title>
+    <title>Welcome to Backup Service</title>
 </head>
 <body>
     <h1>Welcome to Backup Service</h1>
-    <p>Here are your recent backups:</p>
-    
-    <ul>
-        {% for backup in backups %}
-        <li>{{ backup.name }} - {{ backup.size_in_mb }} MB</li>
-        {% empty %}
-        <li>No backups available</li>
-        {% endfor %}
-    </ul>
+
+    <div>
+        <h2>Here are your recent backups:</h2>
+        {% if backups %}
+            <ul>
+                {% for backup in backups %}
+                    <li>{{ backup.name }} - {{ backup.size_in_mb }} MB</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No backups available</p>
+        {% endif %}
+    </div>
+
+    <div>
+        <h2>Other Actions</h2>
+        <p><a href="{% url 'backup_list' %}">View Backups</a></p>
+        <p><a href="{% url 'backup_create' %}">Create Backup</a></p>
+    </div>
 </body>
 </html>

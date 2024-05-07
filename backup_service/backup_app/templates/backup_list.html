@@ -1,44 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Lista de Respaldos</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        h1 {
-            color: #333;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            background-color: #f9f9f9;
-            padding: 10px;
-            margin-bottom: 5px;
-        }
-        .backup-name {
-            font-weight: bold;
-        }
-        .backup-description {
-            color: #666;
-        }
-    </style>
+    <title>Backup List</title>
 </head>
 <body>
-    <h1>Lista de Respaldos</h1>
-    <ul>
+    <h2>Backup List</h2>
+    {% if backups %}
+        <ul>
         {% for backup in backups %}
-        <li>
-            <span class="backup-name">{{ backup.name }}</span><br>
-            <span class="backup-description">{{ backup.description }}</span>
-        </li>
-        {% empty %}
-        <li>No hay respaldos disponibles.</li>
+            <li>
+                <strong>Backup Name:</strong> {{ backup.name }}<br>
+                <strong>Size:</strong> {{ backup.size_in_mb }} MB<br>
+                {% if backup.file %}
+                    <strong>File:</strong> <a href="{{ backup.file.url }}">{{ backup.file.name }}</a><br>
+                {% else %}
+                    <strong>File:</strong> No file uploaded<br>
+                {% endif %}
+            </li>
         {% endfor %}
-    </ul>
+        </ul>
+    {% else %}
+        <p>No backups available</p>
+    {% endif %}
 </body>
 </html>
