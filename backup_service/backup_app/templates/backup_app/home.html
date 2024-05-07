@@ -1,0 +1,21 @@
+<!-- backup_app/templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backup Service - Home</title>
+</head>
+<body>
+    <h1>Welcome to Backup Service</h1>
+    <p>Here are your recent backups:</p>
+    
+    <ul>
+        {% for backup in backups %}
+        <li>{{ backup.name }} - {{ backup.size_in_mb }} MB</li>
+        {% empty %}
+        <li>No backups available</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,7 +1,9 @@
+# backup_app/urls.py
 from django.urls import path
-from .views import BackupListView, BackupCreateView
+from . import views
 
 urlpatterns = [
-    path('backups/', BackupListView.as_view(), name='backup_list'),
-    path('backups/create/', BackupCreateView.as_view(), name='backup_create'),
+    path('', views.home, name='home'), # URL para la pagina principal
+    path('backups/', views.backup_list, name='backup_list'),  # URL para la lista de respaldos
+    path('backups/create/', views.backup_create, name='backup_create'),  # URL para el formulario de creación de respaldo
 ]

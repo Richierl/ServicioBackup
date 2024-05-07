@@ -1,17 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Lista de Respaldos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 5px;
+        }
+        .backup-name {
+            font-weight: bold;
+        }
+        .backup-description {
+            color: #666;
+        }
+    </style>
 </head>
 <body>
     <h1>Lista de Respaldos</h1>
     <ul>
         {% for backup in backups %}
-            <li>{{ backup.name }} - {{ backup.timestamp }}</li>
+        <li>
+            <span class="backup-name">{{ backup.name }}</span><br>
+            <span class="backup-description">{{ backup.description }}</span>
+        </li>
         {% empty %}
-            <li>No hay respaldos disponibles.</li>
+        <li>No hay respaldos disponibles.</li>
         {% endfor %}
     </ul>
-    <a href="{% url 'backup_create' %}">Crear Respaldo</a>
 </body>
 </html>

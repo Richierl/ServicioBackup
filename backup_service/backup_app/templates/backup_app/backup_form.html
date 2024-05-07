@@ -1,17 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Crear Respaldo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="submit"] {
+            padding: 8px;
+            width: 300px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Crear Respaldo</h1>
+    <h1>Crear Nuevo Respaldo</h1>
     <form method="post">
         {% csrf_token %}
-        <label for="id_name">Nombre:</label>
-        <input type="text" id="id_name" name="name"><br>
-        <label for="id_data">Datos:</label>
-        <textarea id="id_data" name="data"></textarea><br>
-        <button type="submit">Crear Respaldo</button>
+        <label for="name">Nombre del Respaldo:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="description">Descripción:</label>
+        <input type="text" id="description" name="description" required>
+        <input type="submit" value="Crear Respaldo">
     </form>
 </body>
 </html>
