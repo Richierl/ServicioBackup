@@ -4,27 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Backup Service</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .recent-backups {
+            margin-bottom: 20px;
+        }
+        .action-links {
+            text-align: center;
+        }
+        .action-links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .action-links a:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to Backup Service</h1>
+    <div class="container">
+        <h1>Welcome to Backup Service</h1>
 
-    <div>
-        <h2>Here are your recent backups:</h2>
-        {% if backups %}
-            <ul>
-                {% for backup in backups %}
-                    <li>{{ backup.name }} - {{ backup.size_in_mb }} MB</li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>No backups available</p>
-        {% endif %}
-    </div>
+        <div class="recent-backups">
+            <h2>Este es un programa de Servicio de Backup, creado como proyecto de la materia de Patrones de Diseño.</h2>
+        </div>
 
-    <div>
-        <h2>Other Actions</h2>
-        <p><a href="{% url 'backup_list' %}">View Backups</a></p>
-        <p><a href="{% url 'backup_create' %}">Create Backup</a></p>
+        <div class="action-links">
+            <h2>Actions</h2>
+            <a href="{% url 'backup_list' %}">View Backups</a>
+            <a href="{% url 'backup_create' %}">Create Backup</a>
+        </div>
     </div>
 </body>
 </html>

@@ -1,0 +1,17 @@
+<!-- backup_app/templates/backup_delete_confirm.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirm Delete</title>
+</head>
+<body>
+    <h2>Confirm Delete Backup</h2>
+    <p>Are you sure you want to delete the backup "{{ backup.backup_name }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+        <a href="{% url 'backup_list' %}">Cancel</a>
+    </form>
+</body>
+</html>

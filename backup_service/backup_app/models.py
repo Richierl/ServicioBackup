@@ -1,11 +1,12 @@
 from django.db import models
 from django.utils import timezone
-from datetime import datetime
+from django.contrib.auth.models import User
 
 class Backup(models.Model):
-    name = models.CharField(max_length=100)
+    backup_name = models.CharField(max_length=255)
     description = models.TextField()
-    backup_file = models.FileField(upload_to='backups/')
+    file = models.FileField(upload_to='backups/')
+    size_in_mb = models.PositiveIntegerField(default=0)  # Valor por defecto
 
     def __str__(self):
-        return self.name
+        return self.backup_name

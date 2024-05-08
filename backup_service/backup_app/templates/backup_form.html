@@ -1,18 +1,78 @@
-<!-- backup_app/templates/backup_form.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Backup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        a {
+            display: block;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <h2>Create Backup</h2>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
+        <label for="{{ form.backup_name.id_for_label }}">Backup Name:</label>
+        {{ form.backup_name }}
+        <br>
+        <label for="{{ form.description.id_for_label }}">Description:</label>
+        {{ form.description }}
+        <br>
+        <label for="{{ form.file.id_for_label }}">Select File:</label>
+        {{ form.file }}
+        <br>
         <button type="submit">Save Backup</button>
     </form>
+    <a href="{% url 'home' %}">Home</a>
 </body>
 </html>
